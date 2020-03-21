@@ -1,5 +1,66 @@
 import React from 'react';
 
+function UserGreeting(props) {
+  return <h1>Welcome back!</h1>;
+}
+
+function GuestGreeting(props) {
+  return <h1>Please sign up.</h1>;
+}
+
+
+function Greeting(props) {
+  const isLoggedIn = props.isLoggedIn;
+  if (isLoggedIn) {
+    return <UserGreeting />;
+  }
+  return <GuestGreeting />;
+}
+
+export default Greeting;
+
+
+// class Toggle extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {isToggleOn: true};
+
+//     // This binding is necessary to make `this` work in the callback
+//     this.handleClick = this.handleClick.bind(this);
+//   }
+
+//   handleClick() {
+//     this.setState(state => ({
+//       isToggleOn: !state.isToggleOn
+//     }));
+//   }
+
+//   render() {
+//     return (
+//       <button onClick={this.handleClick}>
+//         {this.state.isToggleOn ? 'ON' : 'OFF'}
+//       </button>
+//     );
+//   }
+// }
+
+// export default Toggle;
+
+// function ActionLink() {
+//   function handleClick(e) {
+//     e.preventDefault();
+//     console.log('The link was clicked.');
+//   }
+
+//   return (
+//     <a href="#" onClick={handleClick}>
+//       Click me
+//     </a>
+//   );
+// }
+
+// export default ActionLink;
+
 // function HelloWorld() {
 //     const name = 'Josh'
 //     return (
@@ -15,44 +76,10 @@ import React from 'react';
 
 //     )
 // }
-// class Clock extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {date: new Date()};
-//   }
-
-
-// componentDidMount() {
-//   this.timerID = setInterval(
-//     () => this.tick(),
-//     1000
-//   );
-// }
-
-// componentWillUnmount() {
-//   clearInterval(this.timerID);
-// }
-
-// tick() {
-//   this.setState({
-//     date: new Date()
-//   });
-// }
-// render() {
-//   return (
-//     <div>
-//       <h1>Hello, world!</h1>
-//       <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
-//     </div>
-//   );
-// }
-// }
-
-// setInterval(tick, 1000);
-// function Welcome(props) {
-//     return <h1>Hello, {props.name}</h1>;
-//   }
-
+// 
+  // function Welcome(props) {
+  //   return <h1>Hello, {props.name}</h1>;
+  // }
 //   function App() {
 //     return (
 //       <div>
@@ -63,51 +90,3 @@ import React from 'react';
 //     );
 //   }
 
-
-// const React = require('react');
-
-class Counter extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      counter: 0
-    };
-    // let counter = (
-    //   <div id="counter">
-       
-    //   </div> 
-    // );
-
-this.setState((state, props) => ({
-  counter: state.counter + props.incrementButton
-}));
-    
-  }
-
-
-  incrementButton(props) {
-    this.setState({ counter: this.counter++});
-  }
-  decrementButton(props) {
-    this.setState({ counter: this.counter--});
-  }
-
-  render() {
-    return (
-      <div>
-        <h1 id="counter">{this.state.counter}</h1>
-        <button type="button" id="decrement"
-          onClick={() => this.decrementButton}>
-          Decrement
-            </button>
-        <button type="button" id="increment"
-          onClick={() => this.incrementButton}>
-          Increment
-            </button>
-      </div>
-    )
-  }
-}
-
-
-export default Counter;
