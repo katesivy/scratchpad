@@ -14,24 +14,24 @@ class Counter extends React.Component {
     this.decrementButton = this.decrementButton.bind(this);
   }
   
-  incrementButton(props) {
-    this.setState({ counter: this.counter + 1 });
+  incrementButton(e) {
+    this.setState({ counter: this.state.counter + 1 });
   }
-  decrementButton(props) {
-    this.setState({ counter: this.counter - 1 });
+  decrementButton(e) {
+    this.setState({ counter: this.state.counter - 1 });
   }
 
-  render() {
+  render(props) {
     
     return (
       <div>
-        <h1 id="counter">Count = {this.state.counter}</h1>
+        <h1 id="counter">Count = {this.state.counter || 0}</h1>
         <button type="button" id="decrement"
-          onClick={() => this.decrementButton}>
+          onClick={() => this.state.decrementButton}>
           Decrement
             </button>
         <button type="button" id="increment"
-          onClick={() => this.incrementButton}>
+          onClick={() => this.state.incrementButton}>
           Increment
             </button>
       </div>

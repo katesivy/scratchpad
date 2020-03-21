@@ -2,7 +2,6 @@ import React from 'react';
 
 import Clock from './components/Clock';
 import Greeting from './components/HelloWorld';
-// import LoginControl from './components/Login';
 import Counter from './components/Katas';
 import NumberList from './components/Login';
 
@@ -13,7 +12,7 @@ function Scratchpad() {
             <Counter></Counter>
             <Clock></Clock>
             <Greeting isLoggedIn={true}/>
-            <NumberList numbers={numbers}/>
+            {/* <NumberList numbers={numbers}/> */}
 
         </div>
     )
